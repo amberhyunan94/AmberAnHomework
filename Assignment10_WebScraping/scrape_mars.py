@@ -5,7 +5,6 @@ import requests
 import time
 import re
 
-
 def scrape():
 
     mars_data = {}
@@ -21,6 +20,9 @@ def scrape():
     mars_data["hemisphere_image_list_cleaned"] = marsHemisphereImageURLs()
 
     return mars_data
+    print(mars_data)
+
+
 
 # --------------------------------------------------------------------------
 
@@ -33,7 +35,7 @@ def marsNewsData():
     base_url = "https://mars.nasa.gov/"
     #url to actually scrape title & paragraph
     nasa_url = "https://mars.nasa.gov/news/"
-    response_1 = requests.get(nasa_url)
+    response_1 = requests.get(nasa_url) 
     nasa_soup = bs(response_1.text, 'html.parser')
 
     #getting alll titles
@@ -53,7 +55,7 @@ def marsNewsData():
 def marsFeaturedImageURL():
     #import splinter & use chromedriver to get the images
     from splinter import Browser
-    !which chromedriver
+    #!which chromedriver
 
     #explore jpl site
     executable_path = {"executable_path": "chromedriver"}
@@ -149,5 +151,9 @@ def marsHemisphereImageURLs():
         hemisphere_image_list.append(click_soup.find("img", class_="wide-image")["src"])
         hemisphere_image_list_cleaned = ["https://astrogeology.usgs.gov" + url for url in hemisphere_image_list]
         return hemisphere_image_list_cleaned
-    if __name__ == "__main__":
+
+if __name__ == "__main__":
     print(scrape())
+
+
+        
