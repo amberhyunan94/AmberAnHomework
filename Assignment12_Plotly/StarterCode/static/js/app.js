@@ -78,10 +78,12 @@ function getInfo(id) {
     })
 };
 
-function optionChanged(id) {
-    getPlots(id); 
-    getInfo(id);
+function optionChanged(newSample) {
+    // Fetch new data each time a new sample is selected
+    getPlots(newSample);
+    getInfo(newSample);
 }
+
 
 function init() {
     var dropdown = d3.select("#selDataset");
@@ -90,7 +92,10 @@ function init() {
         console.log(data)
 
         data.names.forEach(function(name) {
-            dropdown.append("option").text(name).property("value");
+            dropdown
+                .append("option")
+                .text(name)
+                .property("value");
         });
 
         getPlots(data.names[0]);
