@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>The Tourist Alcoholism Project</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!--page div-->
+  <div class="container-fluid" id="page">
+    <!-- Start of navbar -->
+    <nav class="navbar navbar-default">
+      <a class="navbar-brand" href="index.html" id="logo">
+        <div class="navbar-header">
+          <center>The Tourist Alcoholism Project</center>
+        </div>
+      </a>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <ul class="nav navbar-nav ml-auto">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Places <span class="caret"></span></a>
+            <div class="navbar-collapse">
+              <ul class="dropdown-menu">
+                <li><a href="nyc.html">New York City</a></li>
+                <li><a href="sf.html">San Francisco</a></li>
+                <li><a href="seattle.html">Seattle</a></li>
+                <li><a href="denver.html">Denver</a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+        </li>
+        <li><a href="comparison.html">Explore Alcohols</a></li>
+      </ul>
+    </nav>
+    <!-- End of navbar -->
+
+    <!--Rest of the body-->
+    <div class="row" id="container3">
+
+      <!--Some trivia about the city-->
+      <div class="col-md-8 pad top" id="container4">
+        <div class="box d-inline-block summary" id="box1">
+          <header class="header-body">
+            <h1><strong>Ah, the city of {{ db.city }}</strong></h1>
+          </header>
+          <hr></hr>
+          <main>
+            <section class="posts">
+              <article class="post">
+                <!-- <img src="{{ db.featured_image }}" alt="Latitude vs Temperature" class="img1" align="left"> -->
+                  <p>{{ db.trivia }}</p>
+                  <br>
+                  <p>When is St. Patrick’s Day in Boston?
+                    This year, St. Patrick’s Day falls on Tuesday, March 17, 2020.
+                    
+                    What is St. Patrick’s Day in Boston?
+                    St. Patrick’s Day occurs annually on March 17, 
+                    the date marked by the death of Saint Patrick, 
+                    Ireland’s most celebrated patron saint. The festivities surrounding 
+                    this date specifically commemorate Saint Patrick, and the 
+                    subsequent arrival of Christianity in Ireland.
+                    <br>
+                    Where is the Boston St. Patrick’s Day Parade?
+                    The parade takes place in South Boston on March 15 at 1pm. 
+                    It starts at West Broadway and Dorchester Ave, continues along 
+                    West Broadway to East Broadway, then turns and heads back west, 
+                    ending on Dorchester Ave.</p>
+                  <header class="header">
+                    <h2><strong>What can you do in {{ db.city }}</strong></h2>
+                  </header>
+                    <div class="map">
+                     {{ MAP to be added}}   
+                    </div>
+                    <br>
+                    <div class="text-left">
+                      <p> <a target="_blank" href="https://mars.nasa.gov/news/"> {{things to do 1}} </a></p> 
+                      <p> <a target="_blank" href="https://mars.nasa.gov/news/"> {{things to do 2}} </a></p> 
+                      <p> <a target="_blank" href="https://mars.nasa.gov/news/"> {{things to do 3}}</a></p> 
+                      <p> <a target="_blank" href="https://mars.nasa.gov/news/"> {{things to do 4}} </a></p> 
+                    </div>
+              </article>
+            </section>
+          </main>
+        </div>
+      </div>
+
+      <!--Table-->
+      <div class="row">
+        <!--Tabulated facts-->
+        <div class="col-md-4" id="container5">
+          <!--Facts-->
+          <div class="row">
+            <header class="header">
+              <h3><strong> Flight Suggestions to {{db.city}}</strong></h3>
+            </header>
+            <div class="flight-offers">
+              {{flight offered from amadeus}}   
+             </div>
+             <form id="form">
+              <div class="form-group">
+                <label for="example-form">Let's find you a flight!</label>
+                <br>
+                <input class="form-control" id="airlinecode-input" name="example-form" type="text">
+                <br>
+                <input class="form-control" id="departure-input" name="example-form" type="text">
+                <br>
+                <input class="form-control" id="return-input" name="example-form" type="text">
+                <br>
+                <input class="form-control" id="departure-airport-input" name="example-form" type="text">
+                <br>
+                <input class="form-control" id="return-airport-input" name="example-form" type="text">
+              </div>
+              <button id="flight-offer-button" type="button" class="btn btn-default">Search for Flight Offers!</button>
+            </form>
+            <div class="row">
+              <div class="col-md-12">
+                <h3>Table of Flights : Airline Code, Price, Class, Departure/Arrival Time
+                  <span></span>
+                </h3>
+              </div>        
+              <header class="header">
+                <h3><strong>{{db.city}}'s Most Popular Drink</strong></h3>
+              </header>
+              {{ db.selected_data_table | safe }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <!--Don't Drink & Drive Ad-->
+      <div class="col-md-12" id="container5">
+        <header class="header">
+          <h3><strong>DO NOT DRINK AND DRIVE</strong></h3>
+        </header>
+        Video from Ad Council from YT
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer-nav"></footer>
+  </div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>

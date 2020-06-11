@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>The Tourist Alcoholism Project</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!--page div-->
+  <div class="container-fluid" id="page">
+    <!-- Start of navbar -->
+    <nav class="navbar navbar-default">
+      <a class="navbar-brand" href="index.html" id="logo">
+        <div class="navbar-header">
+          <center>The Tourist Alcoholism Project</center>
+        </div>
+      </a>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <ul class="nav navbar-nav ml-auto">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Places <span class="caret"></span></a>
+            <div class="navbar-collapse">
+              <ul class="dropdown-menu">
+                <li><a href="nyc.html">New York City</a></li>
+                <li><a href="sf.html">San Francisco</a></li>
+                <li><a href="seattle.html">Seattle</a></li>
+                <li><a href="denver.html">Denver</a></li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+        </li>
+        <li><a href="comparison.html">Explore Alcohols</a></li>
+      </ul>
+    </nav>
+    <!-- End of navbar -->
+
+    <!--Rest of the body-->
+    <div class="row" id="container3">
+
+      <!--Some trivia about the city-->
+      <div class="col-md-8 pad top" id="container4">
+        <div class="box d-inline-block summary" id="box1">
+          <header class="header-body">
+            <h1><strong>Ah, the city of {{ db.city }}</strong></h1>
+          </header>
+          <hr></hr>
+          <main>
+            <section class="posts">
+              <article class="post">
+                <img src="{{ db.featured_image }}" alt="Latitude vs Temperature" class="img1" align="left">
+                  <p>{{ db.trivia }}</p>
+                  <header class="header">
+                    <h2><strong>What can you do in {{ db.city }}</strong></h2>
+                  </header>
+                    <div class="map"></div>
+              </article>
+            </section>
+          </main>
+        </div>
+      </div>
+
+      <!--Table-->
+      <div class="row">
+        <!--Tabulated facts-->
+        <div class="col-md-4" id="container5">
+          <!--Facts-->
+          <div class="row">
+            <h2>Your Data in a table</h2>
+              {{ db.selected_data_table | safe }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer-nav"></footer>
+  </div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+</html>
